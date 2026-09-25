@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node (only used for `node --check`; nothing is installed into the repo)
+node_modules/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Local capture output from scripts/smoke.py (screenshots are not deliverables)
+out/

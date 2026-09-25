@@ -1,0 +1,12 @@
+# Text files: normalise line endings
+* text=auto eol=lf
+
+# Generated deliverables: keep them versioned (CLAUDE.md) but collapse them in PR diffs and language stats
+index.html linguist-generated=true
+src/history/index-v4.html linguist-generated=true
+
+# Binary assets
+*.png binary
+*.webp binary
+*.woff2 binary
+*.zip binary
