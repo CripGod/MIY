@@ -101,6 +101,13 @@ Headless capture is slow because WebGL runs on SwiftShader. What works:
 
 Capture at DPR 1 for timing sweeps (each 2x/3x screenshot costs seconds). Read `performance.now()-window.__t0` around every screenshot rather than trusting wall-clock sleeps.
 
+### Repo checks
+    scripts/check.sh              # build must reproduce the committed index.html byte for byte, then node --check on the page script
+    scripts/check.sh --smoke      # also runs scripts/smoke.py: headless load, wait for __t0, fire __go(), fail on page errors
+    python3 scripts/smoke.py --shots out/   # same, plus splash.png and payment.png at DPR 1
+
+`.github/workflows/check.yml` runs both on every push and pull request and uploads the screenshots. In Claude Code on the web, `.claude/hooks/session-start.sh` installs Pillow, numpy and Playwright (matching the container's Chromium) so the asset tools and the smoke test run without setup.
+
 ## Known constraints / production notes
 - Single file with everything inlined: ~1.6 MB. For production, serve the WebP/WOFF2 as separate files so they cache; the build script is the only thing that changes.
 - The rose corner piece is wide and shallow; pushing it deeper down the right edge also pushes it further left across the top (see iteration-log).

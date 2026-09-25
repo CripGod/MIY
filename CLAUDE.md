@@ -30,6 +30,7 @@ Type: Newsreader for body and page-2 copy, IBM Plex Mono for labels, the client'
 
 ## Testing
 See README "Testing". Use `window.__t0` for page time, `window.__go()` for the transition, DPR 1 for sweeps. Validate JS with `node --check` on the extracted script before shipping.
+`scripts/check.sh --smoke` does the build reproducibility check, the `node --check`, and a headless smoke run; CI runs the same on every push.
 
 ## Style of communication with the studio
 Terse and decisive. Root-cause fixes without touching unrelated code. Say what changed and why in a few lines.
